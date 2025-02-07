@@ -1,27 +1,28 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import logo from './logo.svg';
 import './App.css';
-import './styles/navbar.css';
 import Navbar from './components/navbar';
+import Login from './components/login';
+import Register from './components/Registration';
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+
   return (
-    <div className="App">
-      <Navbar />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+      <div className="App">
+        <Navbar 
+          setShowLogin={setShowLogin} 
+          setShowRegister={setShowRegister} 
+        /> 
+        <Routes> 
+          <Route path="/login" element={<Login showLogin={showLogin} />} />
+          <Route path="/register" element={<Register showRegister={showRegister} />} /> 
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
