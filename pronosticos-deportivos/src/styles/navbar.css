@@ -1,0 +1,9 @@
+.navbar {
+    background-color: #ffff00; /* Amarillo */
+    color: #000; /* Negro */
+    font-family: Arial Narrow, sans-serif;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+  }
